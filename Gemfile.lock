@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/seomoz/interpol.git
+  revision: 937a662bbc58626a11fd6906373f2b51e3f81944
+  specs:
+    interpol (0.11.0)
+      hashie (~> 1.2)
+      json-schema (~> 2.2.5)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,11 +40,9 @@ GEM
     builder (3.2.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    hashie (1.2.0)
     hike (1.2.3)
     i18n (0.7.0)
-    interpol (0.11.0)
-      json-schema (~> 2.2.5)
-      rack
     json (1.8.2)
     json-schema (2.2.5)
     mail (2.5.4)
@@ -103,7 +110,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  interpol
+  interpol!
   rails (= 4.1.0)
   rails-api
   rspec-rails

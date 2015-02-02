@@ -8,7 +8,7 @@ gem 'spring', :group => :development
 
 gem 'sqlite3'
 
-gem 'interpol'
+gem 'interpol', github: 'seomoz/interpol'
 
 group :development, :test do
   gem 'rspec-rails'
