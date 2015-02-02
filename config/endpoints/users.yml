@@ -1,0 +1,36 @@
+---
+name: users
+route: /users
+method: GET
+definitions:
+  - message_type: request
+    versions: ["1.0"]
+    schema: {}
+    examples: []
+  - message_type: response
+    versions: ["1.0"]
+    status_codes: ["2xx", "404"]
+    schema:
+      description: Returns a list of users
+      type: object
+      properties:
+        users:
+          description: List of users
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                description: The user's name
+                type: string
+              birthday:
+                description: The user's birthday
+                type: string
+                format: date
+
+    examples:
+      - users:
+        - name: John Smith
+          birthday: '1970-07-21'
+        - name: Franklin Doge
+          birthday: '1985-12-18'
