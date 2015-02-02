@@ -86,9 +86,9 @@ Interpol.default_configuration do |config|
   #
   # Used by Interpol::StubApp, Interpol::TestHelper::RSpec and
   # Interpol::TestHelper::TestUnit.
-  config.filter_example_data do |example, request_env|
-    example.data["current_url"] = Rack::Request.new(request_env).url
-  end
+  # config.filter_example_data do |example, request_env|
+  #   example.data["current_url"] = Rack::Request.new(request_env).url
+  # end
 
   # Sets a callback that will be used to determine which example
   # to return from the stub app. If you provide an endpoint name,
