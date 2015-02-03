@@ -69,10 +69,9 @@ Interpol.default_configuration do |config|
   # Determines which request bodies to validate.
   #
   # Used by Interpol::RequestBodyValidator.
-  # config.validate_request_if do |env|
-  #   env.fetch('CONTENT_TYPE').to_s.include?('json') &&
-  #   %w[ POST PUT ].include?(env.fetch('REQUEST_METHOD'))
-  # end
+  config.validate_request_if do |env|
+    %w[ POST PUT ].include?(env.fetch('REQUEST_METHOD'))
+  end
 
   # Determines how Interpol::ResponseSchemaValidator handles
   # invalid data. By default it will raise an error, but you can
