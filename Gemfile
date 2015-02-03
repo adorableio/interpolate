@@ -12,6 +12,7 @@ gem 'interpol', github: 'seomoz/interpol'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 
