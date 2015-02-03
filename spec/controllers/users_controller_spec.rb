@@ -5,25 +5,27 @@ describe UsersController do
 
   describe '#index' do
     let!(:users) { create_list(:user, 3) }
+    let(:users_response) { json_response['users'] }
 
     before { get :index }
 
     it 'returns all users' do
-      expect(json_response.count).to eq(users.count)
+      expect(users_response.count).to eq(users.count)
     end
 
     it 'has the correct keys' do
-      expect(json_response.first.keys).to match_array(%w(id name birthday))
+      expect(users_response.first.keys).to match_array(%w(id name birthday))
     end
   end
 
   describe '#show' do
     let!(:user) { create(:user) }
+    let(:user_response) { json_response['user'] }
 
     before { get :show, id: user.id }
 
     it 'returns an individual user' do
-      expect(json_response).to include(
+      expect(user_response).to include(
         'id' => user.id,
         'name' => user.name
       )
