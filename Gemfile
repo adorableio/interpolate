@@ -12,6 +12,10 @@ gem 'interpol', github: 'seomoz/interpol'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
+# Required by documentation app
+gem 'nokogiri'
+gem 'sinatra'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
