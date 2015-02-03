@@ -1,4 +1,12 @@
 require 'interpol'
+require 'interpol/request_body_validator'
+require 'interpol/response_schema_validator'
+
+Rails.application.configure do |config|
+  # Add interpol validations
+  config.middleware.use Interpol::RequestBodyValidator
+  config.middleware.use Interpol::ResponseSchemaValidator
+end
 
 Interpol.default_configuration do |config|
   # Tells Interpol where to find your endpoint definition files.
