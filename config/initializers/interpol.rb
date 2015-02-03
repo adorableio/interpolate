@@ -77,7 +77,7 @@ Interpol.default_configuration do |config|
   # pages.
   #
   # Used by Interpol::DocumentationApp.
-  config.documentation_title = "Acme Widget API Documentaton"
+  config.documentation_title = "Interpolate API Documentaton"
 
   # Sets a callback that can be used to filter example data.
   # This is useful when you want your stub app to serve data
