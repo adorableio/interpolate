@@ -10,4 +10,12 @@ class UsersController < ApplicationController
 
     render json: @user, root: :user
   end
+
+  def create
+    @user = User.new(params.permit(:name, :birthday))
+
+    if @user.save
+      render json: @user, root: :user
+    end
+  end
 end

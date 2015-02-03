@@ -30,7 +30,6 @@ definitions:
                 description: The user's birthday
                 type: string
                 format: date
-
     examples:
       - users:
         - id: 1

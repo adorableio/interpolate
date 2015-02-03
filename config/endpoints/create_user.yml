@@ -1,0 +1,45 @@
+---
+name: create_user
+route: /users
+method: POST
+definitions:
+  - message_type: request
+    versions: ["1.0"]
+    schema:
+      description: Creates a new user
+      type: object
+      properties:
+        name:
+          type: string
+        birthday:
+          type: string
+          format: date
+    examples:
+      - name: Mark McEahern
+        birthday: '1969-07-04'
+  - message_type: response
+    versions: ["1.0"]
+    status_codes: ["2xx", "404"]
+    schema:
+      description: Returns the created user
+      type: object
+      properties:
+        user:
+          description: The user object
+          type: object
+          properties:
+            id:
+              description: The user's identifier
+              type: integer
+            name:
+              description: The user's name
+              type: string
+            birthday:
+              description: The user's birthday
+              type: string
+              format: date
+    examples:
+    - user:
+        id: 1
+        name: John Smith
+        birthday: '1970-07-21'
