@@ -10,6 +10,8 @@ gem 'sqlite3'
 
 gem 'interpol', github: 'seomoz/interpol'
 
+gem 'active_model_serializers'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
