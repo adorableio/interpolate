@@ -62,17 +62,17 @@ Interpol.default_configuration do |config|
   # validation to run against any 2xx response except 204 ("No Content").
   #
   # Used by Interpol::ResponseSchemaValidator.
-  config.validate_response_if do |env, status, headers, body|
-    headers['Content-Type'] == my_custom_mime_type
-  end
+  # config.validate_response_if do |env, status, headers, body|
+  #   headers['Content-Type'] == my_custom_mime_type
+  # end
 
   # Determines which request bodies to validate.
   #
   # Used by Interpol::RequestBodyValidator.
-  config.validate_request_if do |env|
-    env.fetch('CONTENT_TYPE').to_s.include?('json') &&
-    %w[ POST PUT ].include?(env.fetch('REQUEST_METHOD'))
-  end
+  # config.validate_request_if do |env|
+  #   env.fetch('CONTENT_TYPE').to_s.include?('json') &&
+  #   %w[ POST PUT ].include?(env.fetch('REQUEST_METHOD'))
+  # end
 
   # Determines how Interpol::ResponseSchemaValidator handles
   # invalid data. By default it will raise an error, but you can
