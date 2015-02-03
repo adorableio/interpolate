@@ -4,4 +4,10 @@ class UsersController < ApplicationController
 
     render json: @users
   end
+
+  def show
+    @user = User.find(params.require(:id))
+
+    render json: @user
+  end
 end
