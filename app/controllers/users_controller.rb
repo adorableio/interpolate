@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @user = User.find(params.require(:id))
 
     render json: @user, root: :user
+  rescue ActiveRecord::RecordNotFound => e
+    render json: {user: nil}, status: :not_found
+  rescue StandardError => e
+    render json: {errors: [e.message]}, status: :internal_server_error
   end
 
   def create

@@ -14,7 +14,7 @@ definitions:
     examples: []
   - message_type: response
     versions: ["1.0"]
-    status_codes: ["2xx", "404"]
+    status_codes: ["2xx"]
     schema:
       description: Returns a user
       type: object
@@ -33,9 +33,39 @@ definitions:
               description: The user's birthday
               type: string
               format: date
-
     examples:
     - user:
         id: 1
         name: John Smith
         birthday: '1970-07-21'
+
+  - message_type: response
+    versions: ["1.0"]
+    status_codes: ["404"]
+    schema:
+      description: Returns a null user
+      type: object
+      properties:
+        user:
+          description: An empty user
+          type: 'null'
+    examples:
+      - user:
+
+  - message_type: response
+    versions: ["1.0"]
+    status_codes: ["5xx"]
+    schema:
+      description: Returns a list of errors
+      type: object
+      properties:
+        errors:
+          description: List of errors
+          type: array
+          items:
+            description: Error message
+            type: string
+    examples:
+      - errors:
+        - Example error message
+        - Another example error message
