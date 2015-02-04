@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'interpol/test_helper'
 
 describe 'endpoints' do
