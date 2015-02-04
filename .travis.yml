@@ -3,3 +3,5 @@ rvm:
   - 2.0.0-p353
 before_script:
   - RAILS_ENV=test bundle exec rake db:create db:migrate
+script:
+  - SPEC_OPTS='--format documentation' bundle exec rake
