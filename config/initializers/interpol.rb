@@ -62,9 +62,9 @@ Interpol.default_configuration do |config|
   # validation to run against any 2xx response except 204 ("No Content").
   #
   # Used by Interpol::ResponseSchemaValidator.
-  # config.validate_response_if do |env, status, headers, body|
-  #   headers['Content-Type'] == my_custom_mime_type
-  # end
+  config.validate_response_if do |env, status, headers, body|
+    true
+  end
 
   # Determines which request bodies to validate.
   #
