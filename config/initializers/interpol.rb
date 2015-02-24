@@ -4,8 +4,8 @@ require 'interpol/response_schema_validator'
 
 Rails.application.configure do |config|
   # Add interpol validations
-  config.middleware.use Interpol::RequestBodyValidator
   config.middleware.use Interpol::ResponseSchemaValidator
+  config.middleware.use Interpol::RequestBodyValidator
 end
 
 Interpol.default_configuration do |config|
@@ -21,7 +21,10 @@ Interpol.default_configuration do |config|
   # request header (e.g. Accept) or from the request URI.
   #
   # Needed by Interpol::StubApp and Interpol::ResponseSchemaValidator.
-  config.response_version '1.0'
+  config.response_version do |env, endpoint|
+    response_version = env['HTTP_API_VERSION'] || endpoint.available_response_versions.first
+    env['API_RESPONSE_VERSION'] = response_version
+  end
 
   # Determines which versioned request endpoint definition Interpol uses
   # for a request. You can also use a block form, which yields
@@ -30,7 +33,11 @@ Interpol.default_configuration do |config|
   # request header (e.g. Content-Type) or from the request URI.
   #
   # Needed by Interpol::Sinatra::RequestParamsParser.
-  config.request_version '1.0'
+  config.request_version do |env, endpoint|
+    request_version = env['HTTP_API_VERSION'] || endpoint.available_request_versions.first
+    require 'pry'; binding.pry
+    env['API_REQUEST_VERSION'] = request_version
+  end
 
   # Determines the stub app response when the requested version is not
   # available. This block will be eval'd in the context of a

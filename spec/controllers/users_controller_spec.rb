@@ -8,14 +8,28 @@ describe UsersController do
   describe '#index' do
     let!(:users) { create_list(:user, 3) }
 
-    before { get :index }
+    context 'v1' do
+      before { get :index }
 
-    it 'returns all users' do
-      expect(users_response.count).to eq(users.count)
+      it 'returns all users' do
+        expect(users_response.count).to eq(users.count)
+      end
+
+      it 'has the correct keys' do
+        expect(users_response.first.keys).to match_array(%w(id name birthday))
+      end
     end
 
-    it 'has the correct keys' do
-      expect(users_response.first.keys).to match_array(%w(id name birthday))
+    context 'v2' do
+      before { get :index, 'api-version' => '2.0'  }
+
+      it 'returns all users' do
+        expect(users_response.count).to eq(users.count)
+      end
+
+      it 'has the correct keys' do
+        expect(users_response.first.keys).to match_array(%w(id name))
+      end
     end
   end
 

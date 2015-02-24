@@ -4,7 +4,7 @@ route: /users
 method: GET
 definitions:
   - message_type: request
-    versions: ["1.0"]
+    versions: ["1.0", "2.0"]
     schema: {}
     examples: []
   - message_type: response
@@ -36,5 +36,35 @@ definitions:
           name: John Smith
           birthday: '1970-07-21'
         - id: 2
+<<<<<<< Updated upstream
           name: Franklin Doge
           birthday: '1985-12-18'
+=======
+          name: Ryland Herrick
+          birthday: '1986-12-23'
+  - message_type: response
+    versions: ["2.0"]
+    status_codes: ["2xx", "404"]
+    schema:
+      description: Returns a list of users
+      type: object
+      properties:
+        users:
+          description: List of users
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                description: The user's identifier
+                type: integer
+              name:
+                description: The user's name
+                type: string
+    examples:
+      - users:
+        - id: 1
+          name: Mark McEahern
+        - id: 2
+          name: Ryland Herrick
+>>>>>>> Stashed changes
