@@ -1,4 +1,4 @@
-# This file is used by Rack-based servers to start the application.
+require File.expand_path("../config/initializers/interpol", __FILE__)
+require 'interpol/stub_app'
 
-require ::File.expand_path('../config/environment',  __FILE__)
-run Rails.application
+run Interpol::StubApp.build

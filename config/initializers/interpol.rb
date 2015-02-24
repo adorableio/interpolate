@@ -105,9 +105,9 @@ Interpol.default_configuration do |config|
   # the first example.
   #
   # Used by Interpol::StubApp.
-  config.select_example_response('some-endpoint') do |endpoint_def, request_env|
-    endpoint_def.examples[3]
-  end
+  # config.select_example_response('some-endpoint') do |endpoint_def, request_env|
+  #   endpoint_def.examples[3]
+  # end
   config.select_example_response do |endpoint_def, request_env|
     endpoint_def.examples.first
   end
