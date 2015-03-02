@@ -8,7 +8,7 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
-gem 'interpol', github: 'seomoz/interpol'
+gem 'interpol', github: 'adorableio/interpol', branch: 'disable_csrf_protection'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
